@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía de ASTRAEUS para comprender el simulador hipotecario y la campaña Impulso Joven: conceptos, formularios, resultados, tasas, CAT y amortización.">
+    <title>Guía Conceptual | ASTRAEUS</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/guia-conceptual.css">
+</head>
+<body>
+
+<!-- MENÚ LATERAL: SE CONSERVAN LOS ID QUE UTILIZA js/menu.js -->
+<button id="menuBoton" class="menu-boton" type="button" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+</button>
+<div id="menuOverlay" class="menu-overlay"></div>
+<aside id="menuLateral" class="menu-lateral" aria-hidden="true">
+    <div class="menu-header">
+        <div class="menu-logo">ASTRAEUS</div>
+        <button id="cerrarMenu" class="cerrar-menu" type="button" aria-label="Cerrar menú">×</button>
+    </div>
+    <nav class="menu-navegacion" aria-label="Menú principal">
+        <a href="index.html" class="menu-opcion"><span class="menu-icono" aria-hidden="true">⌂</span><span>SIMULADOR HIPOTECARIO</span></a>
+        <a href="guia-conceptual.html" class="menu-opcion" aria-current="page"><span class="menu-icono" aria-hidden="true">?</span><span>GUÍA CONCEPTUAL</span></a>
+        <a href="hogares-jovenes.html" class="menu-opcion"><span class="menu-icono" aria-hidden="true">⌂</span><span>HOGARES JÓVENES</span></a>
+    </nav>
+    <div class="menu-footer">Simulador Hipotecario<br>ASTRAEUS</div>
+</aside>
+
+<header class="guia-header">
+    <h1>ASTRAEUS</h1>
+    <nav aria-label="Páginas de ASTRAEUS">
+        <a href="index.html">Simulador</a>
+        <a href="guia-conceptual.html" aria-current="page">Guía conceptual</a>
+        <a href="hogares-jovenes.html">Hogares Jóvenes</a>
+    </nav>
+</header>
+
+<div class="portada-institucional guia-portada">
+    <span class="portada-etiqueta">ASTRAEUS · EDUCACIÓN FINANCIERA</span>
+    <h2>Guía conceptual</h2>
+    <p>Comprende cada campo, interpreta tus resultados y conoce las diferencias entre nuestro simulador hipotecario e Impulso Joven. Explicaciones claras, sin necesidad de conocimientos financieros previos.</p>
+    <div class="portada-linea"></div>
+    <div class="guia-portada-links">
+        <a href="#uso">Cómo empezar</a>
+        <a href="#conceptos">Conceptos clave</a>
+        <a href="#impulso">Impulso Joven</a>
+    </div>
+</div>
+
+<main class="pagina-institucional guia-contenido" id="contenido-principal">
+    <nav class="guia-indice" aria-label="Secciones de la guía">
+        <span class="guia-indice-titulo">CONSULTA RÁPIDA</span>
+        <a href="#uso">Usar los simuladores</a>
+        <a href="#conceptos">Glosario hipotecario</a>
+        <a href="#calculos">Cómo se calcula</a>
+        <a href="#opciones">Opciones especiales</a>
+        <a href="#impulso">Campaña joven</a>
+        <a href="#diferencias">Comparación</a>
+        <a href="#preguntas">Preguntas frecuentes</a>
+    </nav>
+
+    <section class="guia-bloque guia-bienvenida" aria-labelledby="bienvenida-titulo">
+        <span class="guia-sobretitulo">DOS HERRAMIENTAS · UN MISMO OBJETIVO</span>
+        <h2 id="bienvenida-titulo">¿Qué necesitas conocer?</h2>
+        <p class="guia-lead">ASTRAEUS ofrece dos calculadoras con reglas diferentes. Elige la que responda mejor a tu pregunta.</p>
+        <div class="guia-dos-columnas">
+            <article class="guia-tipo guia-tipo-principal">
+                <span class="guia-ordinal">01 / SIMULADOR PRINCIPAL</span>
+                <h3>Simulador hipotecario</h3>
+                <p>Estima montos y pagos con productos, campañas, índices de riesgo, aforos, seguros, gastos, tasas y pagos por millar de un modelo bancario de referencia.</p>
+                <p class="guia-pregunta">¿Cuánto crédito y qué pagos resultan de estas condiciones?</p>
+                <a href="index.html">Abrir simulador hipotecario <span aria-hidden="true">→</span></a>
+            </article>
+            <article class="guia-tipo guia-tipo-joven">
+                <span class="guia-ordinal">02 / CAMPAÑA ACADÉMICA</span>
+                <h3>Impulso Joven</h3>
+                <p>Explora si una mensualidad inicial es compatible con el ingreso neto y las demás deudas, y cómo podría evolucionar el esfuerzo con el tiempo.</p>
+                <p class="guia-pregunta">¿Cuánto puedo comprometerme a pagar de manera sostenible?</p>
+                <a href="hogares-jovenes.html">Abrir Impulso Joven <span aria-hidden="true">→</span></a>
+            </article>
+        </div>
+    </section>
+
+    <section class="guia-bloque" id="uso" aria-labelledby="uso-titulo">
+        <span class="guia-sobretitulo">GUÍA DE USO</span>
+        <h2 id="uso-titulo">Cómo utilizar cada simulador</h2>
+        <div class="guia-dos-columnas guia-instrucciones">
+            <div>
+                <h3>Simulador hipotecario principal</h3>
+                <ol class="guia-pasos">
+                    <li><strong>Selecciona un producto.</strong> Cada uno tiene límites, comisiones y reglas particulares.</li>
+                    <li><strong>Elige qué calcular.</strong> Puede ser a partir del valor de la vivienda, el ingreso o el monto de crédito deseado.</li>
+                    <li><strong>Configura esquema, plazo, campaña, riesgo y actividad económica.</strong> Esto determina las condiciones aplicables.</li>
+                    <li><strong>Captura el importe correspondiente.</strong> Revisa la fecha y, solo si lo necesitas, abre los apartados de seguros, apoyos y prepagos.</li>
+                    <li><strong>Presiona «Calcular crédito».</strong> Consulta pago inicial, CAT estimado, gastos, monto, plazo y tabla de amortización.</li>
+                    <li><strong>Si quieres comparar una campaña o tasa disponible,</strong> selecciona una opción del catálogo en resultados y pulsa «Recalcular con esta tasa».</li>
+                </ol>
+                <p class="guia-nota-inline">El campo de ingreso se muestra en la modalidad «Por ingresos». Para cambiar la modalidad, usa el selector «¿Qué deseas calcular?».</p>
+            </div>
+            <div>
+                <h3>Impulso Joven</h3>
+                <ol class="guia-pasos">
+                    <li><strong>Ingresa tu ingreso neto mensual.</strong> Se utiliza para estimar la capacidad de pago.</li>
+                    <li><strong>Indica otras deudas mensuales.</strong> El prototipo las descuenta del presupuesto inicial para la hipoteca.</li>
+                    <li><strong>Escribe el crédito que deseas solicitar</strong> y selecciona un plazo de 10, 15, 20 o 25 años.</li>
+                    <li><strong>Elige una proyección salarial.</strong> Las opciones sirven para comparar escenarios, no para prometer aumentos.</li>
+                    <li><strong>Ejecuta la evaluación.</strong> Revisa el monto máximo estimado, la mensualidad inicial y si el escenario resulta compatible con el presupuesto definido.</li>
+                    <li><strong>Analiza la gráfica, los plazos y la amortización.</strong> Compara qué sucede durante la vida del financiamiento.</li>
+                </ol>
+                <p class="guia-nota-inline">Impulso Joven es una propuesta académica independiente. No equivale a una aprobación de crédito ni a un producto comercial vigente.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="guia-bloque" id="conceptos" aria-labelledby="conceptos-titulo">
+        <span class="guia-sobretitulo">GLOSARIO FINANCIERO</span>
+        <h2 id="conceptos-titulo">Conceptos que encontrarás en ASTRAEUS</h2>
+        <p class="guia-lead">Las palabras importantes del simulador explicadas con ejemplos sencillos.</p>
+        <div class="guia-glosario">
+            <article class="guia-concepto"><span>01</span><h3>Crédito hipotecario</h3><p>Préstamo normalmente respaldado por una vivienda. Su saldo se paga mediante mensualidades y genera intereses según las condiciones del financiamiento.</p></article>
+            <article class="guia-concepto"><span>02</span><h3>Valor de la vivienda</h3><p>Importe estimado de la propiedad. Sirve como base para calcular el aforo, algunos gastos y, si no se indica otro importe, el seguro de daños.</p></article>
+            <article class="guia-concepto"><span>03</span><h3>Aforo (LTV)</h3><p>Porcentaje del valor de la vivienda que puede financiarse. Si una casa vale $1,000,000 y el aforo es 90%, el financiamiento de referencia por valor es $900,000.</p></article>
+            <article class="guia-concepto"><span>04</span><h3>Enganche</h3><p>Parte del valor del inmueble que no queda cubierta por los recursos considerados para la compra. Puede variar si intervienen crédito Infonavit o subcuenta de vivienda.</p></article>
+            <article class="guia-concepto"><span>05</span><h3>Ingreso mensual y PTI</h3><p>El ingreso comprobable permite estimar la capacidad de pago. PTI es la proporción del ingreso considerada para determinar cuánto podría destinarse a la mensualidad.</p></article>
+            <article class="guia-concepto"><span>06</span><h3>Índice de riesgo</h3><p>Clasificación que modifica algunas condiciones del simulador principal, como el aforo y determinadas tasas del esquema Valora.</p></article>
+            <article class="guia-concepto"><span>07</span><h3>Tasa de interés</h3><p>Porcentaje aplicado al saldo pendiente para calcular intereses. La tasa de una campaña puede cambiar por periodos según el esquema contratado.</p></article>
+            <article class="guia-concepto"><span>08</span><h3>Pago por millar (PPM)</h3><p>Pago base mensual por cada $1,000 de crédito bancario. No incluye por sí mismo los seguros ni gastos adicionales.</p></article>
+            <article class="guia-concepto"><span>09</span><h3>Saldo insoluto</h3><p>Capital que aún falta por pagar al inicio o al final de un periodo. Sobre ese saldo se determinan los intereses mensuales.</p></article>
+            <article class="guia-concepto"><span>10</span><h3>Amortización</h3><p>Parte del pago que reduce el capital de la deuda. No es lo mismo que el interés ni que el pago total incluyendo seguros.</p></article>
+            <article class="guia-concepto"><span>11</span><h3>CAT estimado</h3><p>Indicador anual del costo del crédito, calculado a partir de flujos de pago y costos incorporados al modelo. No es igual a la tasa de interés nominal.</p></article>
+            <article class="guia-concepto"><span>12</span><h3>Plazo y liquidación</h3><p>El plazo es el tiempo originalmente establecido. La liquidación es el momento en que el saldo termina de pagarse; puede ocurrir antes, según las reglas y los pagos.</p></article>
+            <article class="guia-concepto"><span>13</span><h3>Avalúo</h3><p>Estimación profesional del valor de una propiedad. El simulador utiliza una tabla de costos de avalúo según el importe del inmueble y las reglas aplicables.</p></article>
+            <article class="guia-concepto"><span>14</span><h3>Comisiones y gastos</h3><p>Importes adicionales, como comisión de apertura, impuestos, notaría y avalúo. Dependen de las condiciones y no todos forman parte de la mensualidad.</p></article>
+            <article class="guia-concepto"><span>15</span><h3>Seguros</h3><p>La referencia contempla seguro de vida/desempleo sobre saldo y seguro de daños sobre un valor asegurable. La opción de seguros externos modifica los cargos del modelo.</p></article>
+            <article class="guia-concepto"><span>16</span><h3>Prepago</h3><p>Abono extraordinario al capital. Puede reducir el tiempo pendiente y, según la configuración, generar una penalización por prepago.</p></article>
+        </div>
+    </section>
+
+    <section class="guia-bloque" id="calculos" aria-labelledby="calculos-titulo">
+        <span class="guia-sobretitulo">ENTENDER TUS RESULTADOS</span>
+        <h2 id="calculos-titulo">¿De dónde salen los números?</h2>
+        <div class="guia-ejemplo">
+            <div><span class="guia-ordinal">EJEMPLO · SIMULADOR PRINCIPAL</span><h3>Pago por millar</h3><p>Con un crédito bancario de $63,000 y un PPM de 10.84, el pago base inicial se calcula así:</p></div>
+            <div class="guia-formula" role="math" aria-label="63 mil dividido entre mil por 10.84 es igual a 682 pesos con 92 centavos">$63,000 ÷ 1,000 × 10.84 = <strong>$682.92</strong></div>
+            <p class="guia-aclaracion">Este importe es la <strong>erogación base</strong>: para llegar al pago mensual total pueden sumarse seguros y otros conceptos aplicables.</p>
+        </div>
+        <div class="guia-ejemplo guia-ejemplo-claro">
+            <div><span class="guia-ordinal">EJEMPLO · INTERÉS DEL MES</span><h3>Saldo insoluto y días del mes</h3><p>Para $63,000 de saldo, tasa anual de 10% y un mes de 31 días:</p></div>
+            <div class="guia-formula" role="math" aria-label="63 mil por 10 por ciento por 31 entre 360 es igual a 542 pesos con 50 centavos">$63,000 × 0.10 × 31 ÷ 360 = <strong>$542.50</strong></div>
+            <p class="guia-aclaracion">El simulador principal emplea días naturales del mes y una base financiera de <strong>360 días</strong>. Por eso la fecha puede cambiar el interés y los saldos siguientes.</p>
+        </div>
+        <div class="guia-ecuaciones">
+            <div><h3>Abono a capital</h3><code>Pago base − Interés del mes</code><p>En el ejemplo: $682.92 − $542.50 = $140.42.</p></div>
+            <div><h3>Saldo del siguiente mes</h3><code>Saldo inicial − Capital pagado</code><p>Sin prepagos ni aportaciones: $63,000 − $140.42 = $62,859.58.</p></div>
+            <div><h3>CAT</h3><code>(1 + TIR mensual)¹² − 1</code><p>Se calcula con los flujos del modelo. No debe confundirse con una simple suma de gastos o con la tasa nominal.</p></div>
+        </div>
+        <details class="guia-acordeon"><summary>¿Qué diferencia hay entre el pago base y el pago total?</summary><div class="guia-respuesta"><p>El pago base se obtiene mediante el PPM de la campaña, sobre el monto del crédito bancario. El pago total mostrado por ASTRAEUS suma al pago base los seguros aplicables y el prepago si se registró uno. Las aportaciones patronales no se consideran dinero pagado directamente por el usuario.</p></div></details>
+    </section>
+
+    <section class="guia-bloque" id="opciones" aria-labelledby="opciones-titulo">
+        <span class="guia-sobretitulo">FUNCIONES DEL SIMULADOR PRINCIPAL</span>
+        <h2 id="opciones-titulo">Opciones que aparecen en el formulario</h2>
+        <p class="guia-lead">Algunas se encuentran dentro de los apartados desplegables «Seguros y apoyos de vivienda» y «Simular un pago anticipado».</p>
+        <div class="guia-acordeones">
+            <details class="guia-acordeon"><summary>¿Qué significan los esquemas Valora y Pagos Oportunos?</summary><div class="guia-respuesta"><p><strong>Pagos Oportunos:</strong> el modelo conserva el pago base de referencia y aplica reducciones de tasa de 0.20 puntos porcentuales desde los meses 13, 25 y 37; desde el mes 49 aplica una reducción adicional de 0.15 puntos, según la campaña.</p><p><strong>Valora:</strong> el pago base puede aumentar anualmente conforme a la regla del catálogo. La tasa puede disminuir 0.25 puntos porcentuales por año desde el mes 37, hasta su piso correspondiente. Estas condiciones dependen de la campaña.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Por qué elijo producto, campaña, plazo e índice de riesgo?</summary><div class="guia-respuesta"><p>El <strong>producto</strong> determina reglas como comisiones, PTI, valores y montos mínimos. La <strong>campaña</strong>, el <strong>esquema</strong> y el <strong>plazo</strong> determinan una combinación de tasa y PPM. El <strong>índice de riesgo</strong> y el tipo de actividad afectan otras condiciones, como ciertos aforos.</p><p>Algunas combinaciones no están disponibles y no deben interpretarse como tasas universales.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Qué pasa si calculo por vivienda, por ingresos o por crédito deseado?</summary><div class="guia-respuesta"><p><strong>Por valor de vivienda:</strong> parte del precio y del aforo para estimar financiamiento. <strong>Por ingresos:</strong> utiliza la fracción del ingreso admitida y el PPM para estimar un crédito. <strong>Por monto deseado:</strong> parte del crédito introducido e infiere el valor de referencia necesario conforme al aforo. Son tres caminos distintos, no tres campos que debas llenar a la vez.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Cuál es la diferencia entre comisión por apertura y por prepago?</summary><div class="guia-respuesta"><p>La comisión <strong>por apertura</strong> se considera al inicio solamente cuando corresponde por producto, tipo de comisión y campaña. La <strong>penalización por prepago</strong> se asocia al dinero abonado extraordinariamente, también según las reglas aplicables. Elegir «prepago» no significa que debas adelantar dinero inmediatamente.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Por qué hay campos de seguros y valor asegurable?</summary><div class="guia-respuesta"><p>El seguro de vida/desempleo se estima sobre el saldo. El de daños usa el valor asegurable o, si se deja vacío, el valor de la vivienda. «Seguros externos» permite evaluar el escenario sin esos cargos del modelo de referencia; no significa que una institución real vaya a aceptar cualquier póliza externa.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Para qué sirven Apoyo Infonavit, Cofinavit y la subcuenta?</summary><div class="guia-respuesta"><p>En los productos de <strong>Apoyo Infonavit</strong> de esta versión (2 y 5), se utiliza el salario de cotización para estimar aportaciones patronales bimestrales que reducen el saldo. En <strong>Cofinavit</strong> (3 y 7), el modelo estima una parte de crédito Infonavit y otra bancaria. La <strong>subcuenta</strong> representa ahorro de vivienda que puede intervenir en los recursos para la operación. Estos cálculos son estimaciones de referencia.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Cómo funciona la fecha de simulación?</summary><div class="guia-respuesta"><p>La fecha seleccionada se usa para construir el calendario de pagos con días de referencia 3 o 17 y conocer si cada mes tiene 28, 29, 30 o 31 días. El interés mensual se estima sobre los días naturales del mes y base 360. Es una convención del modelo: no equivale necesariamente al interés exacto desde la fecha real de disposición del dinero.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Qué hace el botón «Recalcular con esta tasa»?</summary><div class="guia-respuesta"><p>Tras obtener un resultado, puedes elegir una <strong>campaña/tasa disponible</strong> en el catálogo de resultados. El recálculo mantiene el crédito bancario del escenario activo y actualiza las condiciones financieras asociadas, los pagos, la amortización y el CAT estimado. Si modificas otros datos del formulario, pulsa de nuevo <strong>«Calcular crédito»</strong> para crear un escenario nuevo.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Qué muestran las advertencias del simulador?</summary><div class="guia-respuesta"><p>Pueden indicar que un monto o valor queda fuera del mínimo o máximo del producto, que existe una combinación no disponible o que faltan reglas especiales por comprobar. Algunas condiciones se muestran como <strong>advertencias</strong> y no como aprobación o rechazo financiero; por eso debes leerlas antes de interpretar cualquier resultado.</p></div></details>
+        </div>
+    </section>
+
+    <section class="guia-bloque guia-joven-bloque" id="impulso" aria-labelledby="impulso-titulo">
+        <span class="guia-sobretitulo">HOGARES JÓVENES · PROGRAMA IMPULSO JOVEN</span>
+        <h2 id="impulso-titulo">Una calculadora centrada en la capacidad de pago</h2>
+        <p class="guia-lead">Impulso Joven estudia si un crédito puede ser compatible con los ingresos actuales y cómo podría cambiar ese compromiso durante la vida del préstamo. No utiliza los catálogos bancarios del simulador principal.</p>
+        <div class="guia-metricas">
+            <div><span>5%</span><small>Tasa nominal anual fija, convertible mensualmente</small></div>
+            <div><span>30%</span><small>Esfuerzo financiero inicial de referencia</small></div>
+            <div><span>3%</span><small>Aumento de mensualidad al iniciar cada año</small></div>
+            <div><span>$1 M</span><small>Tope institucional propuesto</small></div>
+        </div>
+        <div class="guia-dos-columnas guia-joven-texto">
+            <div>
+                <h3>¿Cómo calcula tu capacidad?</h3>
+                <p>Parte de un presupuesto inicial conservador: <strong>30% del ingreso neto menos otras deudas mensuales</strong>. Después estima qué capital puede financiar ese pago inicial, dadas la tasa, la duración y las mensualidades crecientes. Finalmente, aplica el tope provisional de $1,000,000.</p>
+                <p>Por ejemplo, con un ingreso neto de $15,000 y sin otras deudas, el presupuesto inicial de referencia es de <strong>$4,500 al mes</strong>.</p>
+            </div>
+            <div>
+                <h3>¿Por qué cambia la mensualidad?</h3>
+                <p>Los primeros doce pagos son iguales. Desde el mes 13 se incrementan 3%; desde el mes 25 vuelven a aumentar 3% y así cada año. La tasa permanece fija en este escenario.</p>
+                <div class="guia-formula guia-formula-joven" role="math" aria-label="Pago en el año a es igual al pago inicial por 1.03 elevado al año a menos uno">Pago del año a = Pago inicial × 1.03<sup>(a − 1)</sup></div>
+            </div>
+        </div>
+        <div class="guia-ejemplo guia-ejemplo-joven">
+            <span class="guia-ordinal">EJEMPLO DEL PROYECTO PRELIMINAR</span>
+            <h3>Crédito de $1,000,000 a 25 años</h3>
+            <p>Con el modelo propuesto, la mensualidad inicial es aproximadamente <strong>$4,324.14</strong>. La calculadora también proyecta el esfuerzo frente a distintos escenarios de crecimiento salarial: <strong>2.5%, 4% y 6% al año</strong>.</p>
+        </div>
+        <div class="guia-alerta"><strong>Importante:</strong> los aumentos salariales son hipótesis para comparar escenarios, no garantías. Los seguros, las comisiones y otros costos del programa todavía no están definidos, por lo que <strong>Impulso Joven no muestra CAT</strong> ni debe entenderse como una aprobación crediticia. Los plazos ordinarios son 10, 15, 20 y 25 años; una posible extensión hasta 30 años pertenece a una reestructuración extraordinaria, no al simulador inicial.</div>
+        <a class="guia-link-secundario" href="hogares-jovenes.html">Explorar Impulso Joven <span aria-hidden="true">→</span></a>
+    </section>
+
+    <section class="guia-bloque" id="diferencias" aria-labelledby="diferencias-titulo">
+        <span class="guia-sobretitulo">ELIGE LA HERRAMIENTA CORRECTA</span>
+        <h2 id="diferencias-titulo">Simulador principal vs. Impulso Joven</h2>
+        <div class="guia-tabla-scroll">
+            <table class="guia-tabla">
+                <thead><tr><th>Característica</th><th>Simulador principal</th><th>Impulso Joven</th></tr></thead>
+                <tbody>
+                    <tr><th scope="row">Propósito</th><td>Estimar condiciones de un crédito hipotecario de referencia</td><td>Evaluar capacidad de pago y sostenibilidad</td></tr>
+                    <tr><th scope="row">Tasa</th><td>Depende de producto, esquema, campaña y otras condiciones</td><td>5% nominal anual fija, como supuesto académico</td></tr>
+                    <tr><th scope="row">Pago base</th><td>Se obtiene del pago por millar (PPM)</td><td>Se obtiene del valor presente de pagos crecientes por años</td></tr>
+                    <tr><th scope="row">Plazos</th><td>Según esquema: hasta 20 años en este modelo</td><td>10, 15, 20 o 25 años</td></tr>
+                    <tr><th scope="row">Gastos y seguros</th><td>Incluye conceptos del Excel de referencia</td><td>Aún no definidos en el proyecto preliminar</td></tr>
+                    <tr><th scope="row">CAT</th><td>Se muestra como estimación para las condiciones modeladas</td><td>No se calcula por ahora</td></tr>
+                    <tr><th scope="row">Comparación</th><td>Permite recalcular con campañas/tasas disponibles</td><td>Compara plazos y escenarios de crecimiento salarial</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="guia-bloque" id="preguntas" aria-labelledby="preguntas-titulo">
+        <span class="guia-sobretitulo">RESOLVEMOS TUS DUDAS</span>
+        <h2 id="preguntas-titulo">Preguntas frecuentes</h2>
+        <div class="guia-acordeones">
+            <details class="guia-acordeon"><summary>¿El resultado significa que ya me aprobaron un crédito?</summary><div class="guia-respuesta"><p>No. Ambas herramientas son simulaciones informativas. La aprobación real depende de la evaluación y las condiciones de la institución financiera correspondiente.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Por qué el CAT es mayor que la tasa de interés?</summary><div class="guia-respuesta"><p>Porque son medidas distintas. La tasa nominal se usa para generar intereses, mientras que el CAT estimado considera flujos del financiamiento y ciertos costos incorporados al cálculo.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Por qué mi pago mensual no es igual al PPM multiplicado por el crédito?</summary><div class="guia-respuesta"><p>El PPM calcula el pago base por cada mil pesos. El pago total puede incorporar seguros, un prepago registrado y ajustes del periodo. Además, el PPM se aplica al <strong>crédito bancario</strong>, que puede ser menor al financiamiento total en Cofinavit.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Por qué mi resultado cambia cuando cambio la fecha?</summary><div class="guia-respuesta"><p>En el simulador principal, los intereses usan la cantidad de días del mes de pago, con base 360. Un mes de 31 días puede generar más intereses que uno de 28 días con el mismo saldo y tasa.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Un crédito con menor mensualidad siempre cuesta menos?</summary><div class="guia-respuesta"><p>No necesariamente. Un plazo mayor puede reducir el pago inicial, pero también puede aumentar los intereses acumulados. Compara el total pagado, el plazo y las condiciones antes de decidir.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Impulso Joven asegura que mi salario crecerá 2.5% cada año?</summary><div class="guia-respuesta"><p>No. El 2.5% es un supuesto académico conservador, y las opciones de 4% y 6% son escenarios alternativos. El crecimiento real del ingreso puede ser distinto o incluso negativo.</p></div></details>
+            <details class="guia-acordeon"><summary>¿Por qué algunos productos o montos muestran advertencias?</summary><div class="guia-respuesta"><p>El modelo conserva límites de sus catálogos y tiene reglas especiales aún en validación, especialmente en aforos para montos altos y algunas variantes de financiamiento. Una advertencia indica que ese resultado debe interpretarse con cautela.</p></div></details>
+        </div>
+    </section>
+
+    <aside class="guia-aviso-final" aria-label="Aviso sobre las simulaciones">
+        <h2>Antes de tomar una decisión financiera</h2>
+        <p>Las cifras de ASTRAEUS son informativas, se basan en modelos y supuestos de referencia y no constituyen una oferta, autorización o compromiso de una institución financiera. Los parámetros bancarios pueden cambiar; revisa siempre las condiciones vigentes, los costos completos y tu capacidad real de pago.</p>
+    </aside>
+
+    <div class="guia-cta-doble" aria-label="Acceso a las calculadoras">
+        <a href="index.html"><span>SIMULADOR PRINCIPAL</span><strong>Explorar mi crédito hipotecario</strong><span aria-hidden="true">→</span></a>
+        <a href="hogares-jovenes.html"><span>IMPULSO JOVEN</span><strong>Evaluar mi capacidad de pago</strong><span aria-hidden="true">→</span></a>
+    </div>
+</main>
+
+<footer>
+    <p>ASTRAEUS · Simulador Hipotecario</p>
+    <p>Educación y orientación financiera · Uso académico e informativo</p>
+</footer>
+
+<script src="js/menu.js"></script>
+</body>
+</html>
