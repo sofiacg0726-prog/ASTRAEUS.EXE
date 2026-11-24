@@ -157,7 +157,7 @@
           <span class="indicador-detalles" aria-hidden="true">+</span>
         </summary>
         <div class="contenido-avanzado">
-          <p class="explicacion-avanzada">Por ejemplo, si abonas $10,000 adicionales en la mensualidad 24, el simulador calcula cómo se reduce el saldo. Por ahora, el prepago reduce el plazo; la reducción de mensualidad sigue pendiente de validación contra el Excel.</p>
+          <p class="explicacion-avanzada">Por ejemplo, si abonas $10,000 adicionales en la mensualidad 24, el simulador calcula cómo se reduce el saldo. Elige si prefieres terminar antes o reducir las mensualidades posteriores. La segunda opción usa los factores de pago del escenario sin prepagos y requiere validación adicional contra Excel.</p>
           <div class="form-grid">
             <div class="campo">
               <label for="mesPrepago">¿En qué mensualidad harás el pago extra?</label>
@@ -168,6 +168,14 @@
               <label for="montoPrepago">Cantidad adicional que abonarás al capital ($)</label>
               <input id="montoPrepago" type="number" min="0" step="0.01" placeholder="Ej. 10000">
               <p class="ayuda-campo">Es un pago extra, distinto de la mensualidad habitual. Puede generar penalización según el producto contratado.</p>
+            </div>
+            <div class="campo">
+              <label for="modalidadPrepago">¿Cómo quieres aplicar el pago anticipado?</label>
+              <select id="modalidadPrepago">
+                <option value="plazo">Disminuir plazo (mantener mensualidad)</option>
+                <option value="pago">Disminuir pago (mantener plazo)</option>
+              </select>
+              <p class="ayuda-campo">Sin prepago las dos opciones producen el mismo resultado. La reducción de pago utiliza factores proporcionales del escenario original, pendientes de cotejo para todos los productos.</p>
             </div>
           </div>
         </div>
