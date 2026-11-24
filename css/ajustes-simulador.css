@@ -1,42 +1,137 @@
-/* ASTRAEUS: únicamente reglas complementarias para el nuevo simulador.
-   No sustituye ni reescribe css/styles.css. */
-.nota-campo { color:#687580; font-size:13px; line-height:1.7; margin:0 0 18px; }
-.formulario .nota-campo:last-of-type { margin-top:18px; margin-bottom:0; }
-.campo[hidden] { display:none; }
-.campo input[type="date"] { min-height:46px; }
-.bloque-gastos .gastos-grid {
-  display:grid; grid-template-columns:repeat(3,minmax(0,1fr));
-  border-left:1px solid #e1e5e9; border-top:1px solid #e1e5e9;
-}
-.bloque-gastos .gasto-card { background:#fff; padding:22px; border-right:1px solid #e1e5e9; border-bottom:1px solid #e1e5e9; }
-.bloque-gastos .gasto-card h3 { color:#52616d; font-size:12px; font-weight:600; margin-bottom:6px; }
-.bloque-gastos .gasto-card p { color:#0b1f33; font-size:18px; font-weight:700; }
-.resultado-card .resultado-select { width:100%; min-width:0; font-size:13px; }
-.resultado-card .resultado-label { display:block; }
-.mensajes-simulacion { padding:15px 18px; margin-top:18px; border:1px solid #d6dee5; border-left:3px solid #6e1f35; background:#f8fafb; color:#253443; font-size:13px; }
-.mensajes-simulacion.error { background:#fff7f7; border-left-color:#b62642; }
-.mensajes-simulacion ul { margin:8px 0 0 20px; }
-.resultados-grid .resultado-card { min-width:0; }
-.tabla-container { overflow-x:auto; }
-.tabla-container table { min-width:1450px; }
-.tabla-container th, .tabla-container td { white-space:nowrap; font-variant-numeric:tabular-nums; }
-.tabla-container td { text-align:right; }
-.tabla-container td:first-child, .tabla-container td:nth-child(2) { text-align:center; }
-@media (max-width:700px) { .bloque-gastos .gastos-grid { grid-template-columns:repeat(1,minmax(0,1fr)); } }
+/* ===========================================================
+   ASTRAEUS | SIMULADOR HIPOTECARIO
+   Campos, botones, resultados, gastos y amortización.
+   Carga DESPUÉS de css/styles.css. No cambia ninguna fórmula.
+   =========================================================== */
 
-/* Versión con explicación de campos: NO modifica cálculos, catálogos o menú. */
-.ayuda-campo { color:#647381; font-size:12px; line-height:1.55; margin:6px 0 0; }
-.opciones-avanzadas { margin-top:17px; border:1px solid #d9e0e6; border-radius:6px; background:#fff; overflow:hidden; }
-.opciones-avanzadas summary { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:18px 21px; cursor:pointer; color:#0b1f33; background:#f8f9fb; list-style:none; }
-.opciones-avanzadas summary::-webkit-details-marker { display:none; }
-.opciones-avanzadas summary strong { display:block; font-size:14px; font-weight:600; }
-.opciones-avanzadas summary small { display:block; font-size:12px; color:#697681; line-height:1.5; margin-top:4px; }
-.opciones-avanzadas summary:hover { background:#f2f4f7; }
-.opciones-avanzadas summary:focus-visible { outline:2px solid #6e1f35; outline-offset:-3px; }
-.indicador-detalles { flex:0 0 auto; color:#6e1f35; font-size:23px; font-weight:400; line-height:1; }
-.opciones-avanzadas[open] .indicador-detalles { transform:rotate(45deg); }
-.contenido-avanzado { padding:22px 22px 24px; border-top:1px solid #e1e5e9; }
-.contenido-avanzado .form-grid { margin-top:16px; }
-.explicacion-avanzada { font-size:13px; color:#52616d; line-height:1.7; max-width:800px; }
-.opciones-avanzadas .campo[hidden] { display:none !important; }
-@media(max-width:700px) { .opciones-avanzadas summary { padding:15px 16px; } .contenido-avanzado { padding:18px 16px; } }
+/* FORMULARIO */
+.formulario {margin-top:38px;}
+.formulario > h2 {margin-bottom:24px;}
+.nota-campo {color:#697987;font-size:13px;line-height:1.75;margin:0 0 21px;}
+.formulario > .nota-campo {max-width:850px;}
+.form-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:23px 38px;width:100%;}
+.campo {display:flex;flex-direction:column;gap:0;min-width:0;}
+.campo[hidden],.opciones-avanzadas .campo[hidden] {display:none!important;}
+.campo label {display:block;color:#273b4d;font-size:13px;line-height:1.45;font-weight:700;margin-bottom:8px;}
+.campo input,.campo select {
+  width:100%;min-width:0;min-height:47px;
+  padding:12px 14px;border:1px solid #cbd5df;border-radius:6px;
+  background:#fff;color:#203140;font-size:14px;line-height:1.45;
+  transition:border-color .2s ease,box-shadow .2s ease,background .2s ease;
+}
+.campo input::placeholder {color:#8896a2;opacity:1;}
+.campo input:hover,.campo select:hover {border-color:#a5b5c1;}
+.campo input:focus,.campo select:focus {
+  outline:none;border-color:#6e1f35;
+  box-shadow:0 0 0 3px rgba(110,31,53,.1);
+}
+.campo select {
+  appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24' stroke='%2330475a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-position:right 14px center;background-repeat:no-repeat;background-size:16px 16px;
+  padding-right:40px;
+}
+.campo select:disabled,.campo input:disabled {background-color:#f1f4f7;color:#8d9ca7;cursor:not-allowed;}
+.ayuda-campo {font-size:11.5px;line-height:1.6;color:#71818f;margin:7px 0 0;}
+
+/* OPCIONES AVANZADAS */
+.opciones-avanzadas {margin-top:18px;border:1px solid #dce3e9;border-radius:8px;background:#fff;overflow:hidden;}
+.opciones-avanzadas summary {
+  list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:20px 23px;background:#f8fafb;color:#0b1f33;
+  transition:background .2s ease;
+}
+.opciones-avanzadas summary::-webkit-details-marker {display:none;}
+.opciones-avanzadas summary:hover {background:#f1f5f8;}
+.opciones-avanzadas summary:focus-visible {outline:3px solid #af7787;outline-offset:-4px;}
+.opciones-avanzadas summary strong {display:block;color:#142b3f;font-size:14px;font-weight:700;}
+.opciones-avanzadas summary small {display:block;font-size:12px;color:#6f7e8a;line-height:1.5;margin-top:5px;font-weight:400;}
+.indicador-detalles {flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;color:#7a2b44;font-size:25px;font-weight:400;line-height:1;width:29px;height:29px;transition:transform .2s ease;}
+.opciones-avanzadas[open] .indicador-detalles {transform:rotate(45deg);}
+.contenido-avanzado {padding:24px 23px 26px;border-top:1px solid #e5e9ed;}
+.explicacion-avanzada {color:#6a7884;font-size:13px;line-height:1.75;margin:0 0 20px;max-width:780px;}
+
+/* BOTÓN CALCULAR */
+#btnCalcular {
+  width:100%;display:flex;align-items:center;justify-content:center;
+  min-height:51px;margin-top:27px;padding:14px 25px;
+  border:0;border-radius:6px;
+  background:#0b1f33;color:#fff;font-size:14px;font-weight:750;letter-spacing:.2px;
+  box-shadow:0 8px 18px rgba(11,31,51,.12);
+  transition:background .2s ease,transform .16s ease,box-shadow .2s ease;
+}
+#btnCalcular:hover {background:#173754;transform:translateY(-1px);box-shadow:0 12px 21px rgba(11,31,51,.18);}
+#btnCalcular:active {transform:none;}
+#btnCalcular:focus-visible,.btn-recalcular:focus-visible {outline:3px solid #bd8696;outline-offset:3px;}
+
+/* MENSAJES DE VALIDACIÓN */
+.mensajes-simulacion {padding:15px 18px;margin-top:17px;border:1px solid #d6dee5;border-left:3px solid #6e1f35;border-radius:4px;background:#f8fafb;color:#334655;font-size:13px;line-height:1.65;}
+.mensajes-simulacion.error {background:#fff5f5;border-color:#f0c9ce;border-left-color:#bb354b;color:#7a2535;}
+.mensajes-simulacion strong {font-size:13px;}
+.mensajes-simulacion ul {margin:9px 0 0;padding-left:18px;}
+.mensajes-simulacion li + li {margin-top:6px;}
+
+/* RESULTADOS */
+.resultados {margin-top:35px;}
+.resultado-header {margin-bottom:25px;}
+.resultado-etiqueta {display:block;color:#7b233f;font-size:11px;font-weight:800;letter-spacing:1.55px;margin-bottom:6px;}
+.resultado-header h2 {font-size:21px;margin:0 0 10px;padding:0;border:0;}
+.resultado-header h2::after {display:none;}
+.resultado-header p {font-size:13px;line-height:1.7;color:#758390;max-width:790px;margin:0;}
+.resultados-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #e1e6ec;border-left:1px solid #e1e6ec;}
+.resultado-card {min-width:0;min-height:118px;padding:23px 26px;display:flex;flex-direction:column;justify-content:center;gap:8px;border-right:1px solid #e1e6ec;border-bottom:1px solid #e1e6ec;background:#fff;transition:background .2s ease;}
+.resultado-card:hover {background:#fbfcfd;}
+.resultado-label {display:block;color:#687985;font-size:12px;font-weight:650;line-height:1.45;}
+.resultado-valor,.resultado-valor-pequeno {font-size:clamp(19px,2vw,25px);line-height:1.24;font-weight:750;letter-spacing:-.3px;color:#0b1f33;overflow-wrap:anywhere;font-variant-numeric:tabular-nums;}
+.resultado-principal {grid-column:1/-1;min-height:146px;background:#0b1f33;position:relative;}
+.resultado-principal:hover {background:#0b1f33;}
+.resultado-principal::after {content:"";position:absolute;right:0;top:0;bottom:0;width:5px;background:#6e1f35;}
+.resultado-principal .resultado-label {color:#c2cfdb;font-size:13px;}
+.resultado-principal .resultado-valor {color:#fff;font-size:clamp(28px,3.2vw,39px);}
+.resultado-card .resultado-select {
+  width:100%;max-width:100%;min-width:0;min-height:40px;
+  padding:8px 30px 9px 0;
+  border:0;border-bottom:1px solid #9eacb8;border-radius:0;
+  background-color:transparent;color:#142d43;font-size:13px;font-weight:650;cursor:pointer;
+}
+.resultado-card .resultado-select:focus {outline:none;border-bottom-color:#6e1f35;box-shadow:0 2px 0 rgba(110,31,53,.13);}
+.recalcular-contenedor {display:flex;justify-content:flex-end;margin-top:20px;}
+.btn-recalcular {
+  display:inline-flex;align-items:center;justify-content:center;min-height:37px;
+  padding:9px 19px;background:#fff;border:1px solid #b5c0c9;border-radius:5px;
+  color:#0b1f33;font-size:12px;font-weight:750;
+  transition:color .2s ease,background .2s ease,border-color .2s ease;
+}
+.btn-recalcular:hover {color:#6e1f35;border-color:#6e1f35;background:#fcf7f9;}
+
+/* GASTOS */
+.bloque-gastos .gastos-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #e0e6ec;border-left:1px solid #e0e6ec;}
+.bloque-gastos .gasto-card {min-width:0;min-height:112px;padding:21px 23px;background:#fff;border-right:1px solid #e0e6ec;border-bottom:1px solid #e0e6ec;}
+.bloque-gastos .gasto-card h3 {color:#637482;font-size:12px;font-weight:650;margin:0 0 7px;line-height:1.4;}
+.bloque-gastos .gasto-card p {color:#0b1f33;font-size:20px;font-weight:750;line-height:1.3;overflow-wrap:anywhere;margin:0;font-variant-numeric:tabular-nums;}
+
+/* TABLA DE AMORTIZACIÓN */
+.tabla-container {width:100%;max-width:100%;overflow-x:auto;border:1px solid #e0e5ec;border-radius:5px;}
+.tabla-container table {width:100%;min-width:1420px;border-collapse:collapse;margin:0;}
+.tabla-container thead {background:#0b1f33;color:#fff;}
+.tabla-container th {padding:14px 12px;text-align:right;font-size:12px;font-weight:650;line-height:1.35;white-space:nowrap;}
+.tabla-container td {padding:12px 11px;border-bottom:1px solid #e2e8ed;font-size:12px;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.tabla-container th:first-child,.tabla-container th:nth-child(2),.tabla-container td:first-child,.tabla-container td:nth-child(2) {text-align:center;}
+.tabla-container tbody tr:nth-child(even) {background:#f8fafb;}
+.tabla-container tbody tr:hover {background:#f5f0f3;}
+
+@media (max-width:900px) {
+  .form-grid {gap:21px 23px;}
+  .bloque-gastos .gastos-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width:700px) {
+  .form-grid {grid-template-columns:1fr;gap:19px;}
+  .contenido-avanzado {padding:19px 16px 21px;}
+  .opciones-avanzadas summary {padding:17px 16px;}
+  .resultados-grid {grid-template-columns:1fr;}
+  .resultado-principal {grid-column:1;}
+  .resultado-card {min-height:102px;padding:20px 22px;}
+  .resultado-principal {min-height:125px;}
+  .bloque-gastos .gastos-grid {grid-template-columns:1fr;}
+  .recalcular-contenedor .btn-recalcular {width:auto;}
+}
