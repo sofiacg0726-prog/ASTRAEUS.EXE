@@ -1,0 +1,131 @@
+/* ===========================================================
+   ASTRAEUS | GUIA CONCEPTUAL
+   Estilos adicionales SOLO para guia-conceptual.html.
+   Conserva css/styles.css y js/menu.js sin modificaciones.
+   =========================================================== */
+:root {
+    --guia-navy: #0b1f33;
+    --guia-wine: #6e1f35;
+    --guia-accent: #a96679;
+    --guia-text: #263746;
+    --guia-muted: #637180;
+    --guia-line: #e1e6eb;
+    --guia-paper: #ffffff;
+}
+html { scroll-behavior: smooth; }
+.guia-header { padding-left: 88px; }
+.guia-header nav a[aria-current="page"] { color: #f2bccb; }
+.guia-portada { padding: 66px max(5%, calc((100% - 1150px) / 2)) 52px; }
+.guia-portada h2 { font-size: clamp(30px, 4.5vw, 43px); }
+.guia-portada p { max-width: 750px; }
+.guia-portada-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.guia-portada-links a { display: inline-flex; align-items: center; padding: 9px 15px; color: #f4f7fa; text-decoration: none; font-size: 12px; font-weight: 600; border: 1px solid rgba(244,247,250,.28); border-radius: 4px; transition: background .2s ease; }
+.guia-portada-links a:hover, .guia-portada-links a:focus-visible { background: rgba(255,255,255,.1); }
+.guia-contenido { width: min(92%, 1150px); margin: 30px auto 60px; }
+.guia-contenido h2, .guia-contenido h3 { color: var(--guia-navy); }
+.guia-contenido p { color: var(--guia-muted); }
+.guia-contenido a:focus-visible, .guia-contenido summary:focus-visible { outline: 3px solid var(--guia-accent); outline-offset: 3px; }
+.guia-indice { padding: 19px 22px; background: #f9fafb; border: 1px solid var(--guia-line); border-radius: 6px; margin: 0 0 26px; display: flex; gap: 11px 17px; align-items: center; flex-wrap: wrap; }
+.guia-indice-titulo { display: block; color: var(--guia-wine); font-size: 10px; font-weight: 800; letter-spacing: 1.3px; margin-right: 5px; }
+.guia-indice a { color: #324657; font-size: 12px; font-weight: 600; text-decoration: none; }
+.guia-indice a:hover { color: var(--guia-wine); text-decoration: underline; text-underline-offset: 4px; }
+.guia-contenido .guia-bloque { width: 100%; max-width: none; margin: 0 0 24px; padding: 35px 38px; background: #fff; border: 1px solid #e7eaed; border-radius: 7px; box-shadow: 0 8px 23px rgba(11,31,51,.045); scroll-margin-top: 22px; }
+.guia-contenido .guia-bloque > h2 { font-size: clamp(21px, 2.5vw, 27px); line-height: 1.33; margin-bottom: 13px; padding: 0; border: none; font-weight: 650; }
+.guia-sobretitulo { display: block; color: var(--guia-wine); font-weight: 750; letter-spacing: 1.9px; font-size: 10px; margin-bottom: 10px; }
+.guia-lead { font-size: 14px; line-height: 1.8; max-width: 900px; margin: 0 0 25px; }
+.guia-dos-columnas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.guia-tipo { min-width: 0; display: flex; flex-direction: column; padding: 27px 28px 24px; border: 1px solid var(--guia-line); border-left: 3px solid var(--guia-wine); background: #fdfdfd; }
+.guia-tipo-joven { border-left-color: #375a75; background: #f9fbfc; }
+.guia-ordinal { color: var(--guia-wine); font-size: 10px; letter-spacing: 1.3px; font-weight: 800; }
+.guia-tipo h3 { font-size: 20px; margin-top: 11px; margin-bottom: 10px; }
+.guia-tipo p { font-size: 13px; line-height: 1.8; margin-bottom: 11px; }
+.guia-tipo .guia-pregunta { font-weight: 700; color: #273d50; margin-top: auto; }
+.guia-tipo a { align-self: flex-start; color: var(--guia-wine); font-size: 12px; font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(110,31,53,.4); padding-bottom: 3px; margin-top: 8px; }
+.guia-tipo a:hover { color: #9a415b; }
+.guia-instrucciones > div { background: #fff; padding: 8px 10px 3px; }
+.guia-instrucciones h3, .guia-joven-texto h3 { font-size: 17px; margin-bottom: 15px; }
+.guia-pasos { list-style: none; counter-reset: paso; margin: 0; padding: 0; }
+.guia-pasos li { position: relative; counter-increment: paso; padding: 0 0 17px 40px; color: #556472; font-size: 13px; line-height: 1.8; }
+.guia-pasos li:before { content: counter(paso, decimal-leading-zero); position: absolute; left: 0; top: 0; font-size: 11px; font-weight: 800; color: var(--guia-wine); border: 1px solid #d9c6cb; border-radius: 4px; width: 29px; height: 27px; display: grid; place-items: center; }
+.guia-pasos strong { color: #203548; }
+.guia-nota-inline { background: #f5f7f9; border-left: 2px solid #aeb7c3; padding: 12px 14px; font-size: 12px; line-height: 1.65; }
+.guia-glosario { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--guia-line); border-left: 1px solid var(--guia-line); }
+.guia-concepto { min-width: 0; padding: 23px 26px; border-right: 1px solid var(--guia-line); border-bottom: 1px solid var(--guia-line); }
+.guia-concepto > span { font-size: 11px; font-weight: 800; color: var(--guia-wine); letter-spacing: 1px; }
+.guia-concepto h3 { font-size: 16px; margin: 8px 0; }
+.guia-concepto p { line-height: 1.8; font-size: 13px; }
+.guia-ejemplo { background: #f4f7f9; padding: 25px 27px; margin-top: 17px; border-left: 3px solid var(--guia-wine); }
+.guia-ejemplo h3 { font-size: 17px; margin: 7px 0 6px; }
+.guia-ejemplo p { font-size: 13px; line-height: 1.8; }
+.guia-ejemplo-claro { background: #fbfafb; }
+.guia-formula { background: #fff; color: var(--guia-navy); padding: 18px; margin: 16px 0 10px; text-align: center; border: 1px solid #dde3e8; font-size: clamp(14px, 2vw, 19px); font-weight: 600; overflow-wrap: anywhere; }
+.guia-formula strong { color: var(--guia-wine); font-size: 1.1em; }
+.guia-ejemplo .guia-aclaracion { font-size: 12px; margin: 8px 0 0; }
+.guia-ecuaciones { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin: 18px 0 18px; }
+.guia-ecuaciones > div { border: 1px solid var(--guia-line); padding: 19px 17px; }
+.guia-ecuaciones h3 { font-size: 14px; margin-bottom: 8px; }
+.guia-ecuaciones code { display: block; font: 600 12px/1.6 Consolas, monospace; color: #82334b; background: #faf4f6; padding: 10px; white-space: normal; overflow-wrap: anywhere; }
+.guia-ecuaciones p { margin-top: 10px; font-size: 12px; line-height: 1.7; }
+.guia-acordeones { border-top: 1px solid var(--guia-line); }
+.guia-acordeon { border-bottom: 1px solid var(--guia-line); }
+.guia-acordeon summary { list-style: none; cursor: pointer; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 19px 4px; color: #18334a; font-size: 14px; font-weight: 700; line-height: 1.55; }
+.guia-acordeon summary::-webkit-details-marker { display: none; }
+.guia-acordeon summary:after { content: '+'; display: inline-grid; place-items: center; flex: 0 0 24px; height: 24px; color: var(--guia-wine); border: 1px solid #dbccd0; border-radius: 50%; font-size: 20px; line-height: 1; }
+.guia-acordeon[open] summary:after { content: '−'; }
+.guia-acordeon[open] summary { color: var(--guia-wine); }
+.guia-respuesta { padding: 0 37px 20px 4px; }
+.guia-respuesta p { font-size: 13px; line-height: 1.85; margin-bottom: 10px; }
+.guia-bloque .guia-acordeon:last-child { border-bottom: 1px solid var(--guia-line); }
+.guia-joven-bloque { border-top: 3px solid var(--guia-wine) !important; }
+.guia-metricas { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1px; background: var(--guia-line); border: 1px solid var(--guia-line); margin: 24px 0 29px; }
+.guia-metricas > div { background: #f8fafb; padding: 23px 18px; }
+.guia-metricas span { display: block; color: var(--guia-navy); font-size: clamp(20px,3vw,29px); font-weight: 750; letter-spacing: -.5px; line-height: 1.2; margin-bottom: 10px; }
+.guia-metricas small { display: block; color: var(--guia-muted); font-size: 11px; line-height: 1.5; }
+.guia-joven-texto p { font-size: 13px; line-height: 1.8; margin-bottom: 12px; }
+.guia-formula-joven { font-size: 13px; line-height: 2; }
+.guia-ejemplo-joven { margin: 24px 0 17px; }
+.guia-alerta { padding: 17px 20px; background: #f8f6f6; border-left: 3px solid #b1818e; font-size: 13px; line-height: 1.8; color: #465867; }
+.guia-alerta strong { color: var(--guia-navy); }
+.guia-link-secundario { display: inline-flex; align-items: center; padding: 11px 18px; background: var(--guia-navy); border-radius: 4px; color: #fff; font-weight: 700; font-size: 12px; text-decoration: none; margin-top: 20px; }
+.guia-link-secundario:hover { background: #183752; }
+.guia-tabla-scroll { overflow-x: auto; border: 1px solid var(--guia-line); }
+.guia-tabla { min-width: 660px; width: 100%; margin: 0; border-collapse: collapse; }
+.guia-tabla thead { background: var(--guia-navy); color: #fff; }
+.guia-tabla th, .guia-tabla td { padding: 14px 16px; border-bottom: 1px solid var(--guia-line); font-size: 12px; line-height: 1.65; text-align: left; vertical-align: top; }
+.guia-tabla tbody th { width: 24%; color: #253c4e; font-weight: 700; background: #f9fafb; }
+.guia-tabla tbody td { color: #526473; }
+.guia-tabla tbody tr:nth-child(even) { background: #f8fafb; }
+.guia-tabla tbody tr:hover { background: #f1f4f7; }
+.guia-aviso-final { background: #f7f8fa; border-left: 3px solid var(--guia-wine); padding: 25px 30px; margin: 0 0 25px; }
+.guia-aviso-final h2 { font-size: 17px; margin: 0 0 10px; padding: 0; border: none; }
+.guia-aviso-final p { font-size: 13px; line-height: 1.8; }
+.guia-cta-doble { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
+.guia-cta-doble a { background: var(--guia-navy); color: #fff; text-decoration: none; display: grid; grid-template-columns: 1fr auto; gap: 7px; padding: 25px 23px; border-bottom: 3px solid var(--guia-wine); transition: background .2s; }
+.guia-cta-doble a:hover { background: #173652; }
+.guia-cta-doble a > span:first-child { grid-column: 1/-1; font-size: 10px; color: #cfdae4; letter-spacing: 1.4px; font-weight: 700; }
+.guia-cta-doble strong { color: #fff; font-size: 16px; }
+.guia-cta-doble a > span:last-child { font-size: 21px; color: #e1c3ca; }
+@media (max-width: 900px) {
+    .guia-metricas { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .guia-ecuaciones { grid-template-columns: 1fr; }
+    .guia-header { padding-left: 78px; }
+}
+@media (max-width: 700px) {
+    .guia-header { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; padding: 18px 20px 18px 80px; }
+    .guia-header h1 { align-self: flex-start; font-size: 21px; }
+    .guia-header nav { align-self: stretch; display: flex; flex-wrap: wrap; gap: 9px 12px; }
+    .guia-header nav a { margin: 0; font-size: 11.5px; }
+    .guia-portada { padding: 53px 7% 46px; }
+    .guia-contenido { width: 94%; margin: 22px auto 40px; }
+    .guia-contenido .guia-bloque { padding: 25px 21px; }
+    .guia-indice { padding: 17px 16px; gap: 10px 14px; }
+    .guia-indice-titulo { width: 100%; }
+    .guia-dos-columnas, .guia-glosario, .guia-cta-doble { grid-template-columns: 1fr; }
+    .guia-concepto { padding: 20px; }
+    .guia-tipo { padding: 22px; }
+    .guia-metricas > div { padding: 18px 14px; }
+    .guia-acordeon summary { font-size: 13px; }
+    .guia-respuesta { padding-right: 10px; }
+    .guia-ejemplo { padding: 22px 18px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
