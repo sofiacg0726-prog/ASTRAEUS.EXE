@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Impulso Joven: simulador académico de capacidad de pago hipotecario, anualidades crecientes y proyección salarial.">
+  <title>Impulso Joven | ASTRAEUS</title>
+  <!-- Usa el archivo que YA EXISTE en tu proyecto; no hay que reemplazarlo. -->
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Estilos exclusivos de Hogares Jóvenes -->
+  <link rel="stylesheet" href="css/hogares-jovenes.css">
+</head>
+<body class="ij-body">
+  <!-- Menú original de ASTRAEUS, controlado por js/menu.js -->
+  <button id="menuBoton" class="menu-boton" type="button" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <div id="menuOverlay" class="menu-overlay"></div>
+  <aside id="menuLateral" class="menu-lateral" aria-hidden="true">
+    <div class="menu-header">
+      <div class="menu-logo">ASTRAEUS</div>
+      <button id="cerrarMenu" class="cerrar-menu" type="button" aria-label="Cerrar menú">×</button>
+    </div>
+    <nav class="menu-navegacion" aria-label="Navegación lateral">
+      <a href="index.html" class="menu-opcion"><span class="menu-icono">⌂</span><span>SIMULADOR HIPOTECARIO</span></a>
+      <a href="guia-conceptual.html" class="menu-opcion"><span class="menu-icono">?</span><span>GUÍA CONCEPTUAL</span></a>
+      <a href="hogares-jovenes.html" class="menu-opcion" aria-current="page"><span class="menu-icono">⌂</span><span>HOGARES JÓVENES</span></a>
+    </nav>
+    <div class="menu-footer">Simulador Hipotecario<br>ASTRAEUS</div>
+  </aside>
+
+  <header class="ij-header">
+    <h1>ASTRAEUS</h1>
+    <nav aria-label="Navegación principal">
+      <a href="index.html">Simulador principal</a>
+      <a href="guia-conceptual.html">Guía conceptual</a>
+    </nav>
+  </header>
+
+  <main class="ij-page">
+    <div class="ij-hero">
+      <div class="ij-hero-content">
+        <span class="ij-eyebrow">ASTRAEUS / PROGRAMA ACADÉMICO</span>
+        <h2>Impulso Joven</h2>
+        <p class="ij-hero-lead">Un primer paso hacia tu hogar, con decisiones financieras informadas.</p>
+        <p class="ij-hero-detail">Explora cuánto puedes financiar hoy y cómo se comportarían tus pagos e ingresos a lo largo del tiempo. Dirigido a estudiantes próximos a egresar y jóvenes profesionistas.</p>
+        <div class="ij-hero-rule" aria-hidden="true"></div>
+      </div>
+      <div class="ij-hero-fact" aria-label="Condiciones base del modelo">
+        <span class="ij-fact-label">ESCENARIO BASE DE ESTUDIO</span>
+        <strong>5<span>%</span></strong>
+        <p>Tasa nominal anual fija, convertible mensualmente</p>
+        <div class="ij-fact-divider"></div>
+        <span>Mensualidad +3% al iniciar cada año</span>
+      </div>
+    </div>
+
+    <div class="ij-shell">
+      <div class="ij-intro">
+        <span class="ij-section-tag">EVALUACIÓN FINANCIERA</span>
+        <h2>Construye tu escenario</h2>
+        <p>El simulador estima la capacidad de pago inicial y proyecta una anualidad con mensualidades crecientes por bloques de doce meses. Los valores son supuestos académicos, no una aprobación bancaria.</p>
+      </div>
+
+      <section class="ij-panel" aria-labelledby="ij-form-titulo">
+        <div class="ij-panel-title">
+          <div>
+            <span class="ij-mini-label">01 / TU PERFIL</span>
+            <h3 id="ij-form-titulo">Datos de la simulación</h3>
+          </div>
+          <span class="ij-panel-icon" aria-hidden="true">⌂</span>
+        </div>
+        <form id="ijFormulario" novalidate>
+          <div class="ij-form-grid">
+            <div class="ij-field">
+              <label for="ijIngreso">Ingreso mensual neto <span aria-hidden="true">*</span></label>
+              <div class="ij-input-wrap"><span>$</span><input id="ijIngreso" type="number" inputmode="decimal" min="0.01" step="0.01" value="15000" required placeholder="Ej. 15000"></div>
+              <small>Ingreso disponible después de impuestos.</small>
+            </div>
+            <div class="ij-field">
+              <label for="ijDeudas">Otras deudas mensuales</label>
+              <div class="ij-input-wrap"><span>$</span><input id="ijDeudas" type="number" inputmode="decimal" min="0" step="0.01" value="0" placeholder="Ej. 1200"></div>
+              <small>Pagos de otros créditos que ya tienes.</small>
+            </div>
+            <div class="ij-field">
+              <label for="ijMonto">Crédito que deseas solicitar <span aria-hidden="true">*</span></label>
+              <div class="ij-input-wrap"><span>$</span><input id="ijMonto" type="number" inputmode="decimal" min="0.01" step="0.01" value="1000000" required placeholder="Ej. 800000"></div>
+              <small>El tope preliminar es de $1,000,000.</small>
+            </div>
+            <div class="ij-field">
+              <label for="ijPlazo">Plazo del crédito <span aria-hidden="true">*</span></label>
+              <select id="ijPlazo" required>
+                <option value="10">10 años</option>
+                <option value="15">15 años</option>
+                <option value="20">20 años</option>
+                <option value="25" selected>25 años</option>
+              </select>
+              <small>La extensión a 30 años no es un plazo ordinario.</small>
+            </div>
+            <div class="ij-field ij-field-wide">
+              <label for="ijCrecimiento">Proyección de crecimiento salarial</label>
+              <select id="ijCrecimiento">
+                <option value="0.025" selected>2.5% anual · escenario conservador</option>
+                <option value="0.04">4% anual · escenario alternativo</option>
+                <option value="0.06">6% anual · escenario alternativo</option>
+              </select>
+              <small>Es una hipótesis de simulación, no un aumento de sueldo garantizado. No cambia el crédito máximo inicial.</small>
+            </div>
+          </div>
+          <div class="ij-fixed-conditions">
+            <div><span>Esfuerzo inicial máximo</span><strong>30%</strong></div>
+            <div><span>Tasa nominal anual</span><strong>5%</strong></div>
+            <div><span>Aumento de mensualidad</span><strong>3% anual</strong></div>
+            <div><span>Límite institucional</span><strong>$1,000,000</strong></div>
+          </div>
+          <p class="ij-method-note">Criterio adicional de este prototipo: para estimar el crédito máximo, reservamos dentro del 30% del ingreso el importe de otras deudas mensuales. Es una medida conservadora propuesta, no una regla bancaria autorizada.</p>
+          <div id="ijError" class="ij-error" role="alert" hidden></div>
+          <button class="ij-calculate" type="submit">Evaluar mi financiamiento <span aria-hidden="true">→</span></button>
+        </form>
+      </section>
+
+      <section id="ijResultados" class="ij-results" aria-labelledby="ij-titulo-resultados" hidden>
+        <div class="ij-result-heading">
+          <div>
+            <span class="ij-section-tag">02 / RESULTADOS</span>
+            <h2 id="ij-titulo-resultados">Tu panorama financiero</h2>
+          </div>
+          <div class="ij-status" id="ijEstado" role="status"></div>
+        </div>
+        <div class="ij-result-grid">
+          <div class="ij-result-card ij-result-highlight"><span>Crédito máximo estimado</span><strong id="ijMaximo">—</strong><small>Por presupuesto inicial y límite institucional</small></div>
+          <div class="ij-result-card"><span>Mensualidad inicial solicitada</span><strong id="ijInicial">—</strong><small>Constante durante el primer año</small></div>
+          <div class="ij-result-card"><span>Intereses totales estimados</span><strong id="ijIntereses">—</strong><small>Sobre el monto solicitado</small></div>
+          <div class="ij-result-card"><span>Total nominal a pagar</span><strong id="ijTotal">—</strong><small>Capital más intereses; sin gastos no definidos</small></div>
+          <div class="ij-result-card"><span>Pago hipotecario / ingreso inicial</span><strong id="ijEsfuerzo">—</strong><small>Se evalúa junto con otras deudas</small></div>
+          <div class="ij-result-card"><span>Disponible para hipoteca</span><strong id="ijPresupuesto">—</strong><small>30% del ingreso menos otras deudas</small></div>
+        </div>
+        <p id="ijDiagnostico" class="ij-diagnostico"></p>
+      </section>
+
+      <section id="ijProyeccion" class="ij-panel ij-analysis" aria-labelledby="ij-proyeccion-titulo" hidden>
+        <div class="ij-panel-title">
+          <div><span class="ij-mini-label">03 / SOSTENIBILIDAD</span><h3 id="ij-proyeccion-titulo">¿Cómo cambia el esfuerzo con los años?</h3></div>
+        </div>
+        <p class="ij-section-description">Las mensualidades crecen 3% al inicio de cada año. Compara esa trayectoria con tres hipótesis de crecimiento salarial. La gráfica expresa el porcentaje destinado <strong>solo a la hipoteca</strong>; las otras deudas se consideran por separado en la evaluación inicial.</p>
+        <div class="ij-chart-area">
+          <svg id="ijGrafica" viewBox="0 0 780 290" role="img" aria-label="Gráfica de la evolución del esfuerzo hipotecario frente a tres crecimientos salariales" preserveAspectRatio="xMidYMid meet"></svg>
+          <div class="ij-legend"><span class="ij-legend-one">Salario +2.5%</span><span class="ij-legend-two">Salario +4%</span><span class="ij-legend-three">Salario +6%</span><span class="ij-legend-limit">Referencia 30%</span></div>
+        </div>
+        <div class="ij-table-scroller">
+          <table class="ij-table"><thead><tr><th>Año</th><th>Mensualidad</th><th>Ingreso mensual proyectado</th><th>Esfuerzo hipotecario</th><th>Saldo al cierre</th></tr></thead><tbody id="ijAnualBody"></tbody></table>
+        </div>
+      </section>
+
+      <section id="ijComparacion" class="ij-panel ij-analysis" aria-labelledby="ij-comp-titulo" hidden>
+        <div class="ij-panel-title"><div><span class="ij-mini-label">04 / DECISIONES INFORMADAS</span><h3 id="ij-comp-titulo">Compara distintos plazos</h3></div></div>
+        <p class="ij-section-description">Mismo crédito solicitado, tasa anual de 5% y aumento del pago de 3% por año. Un plazo mayor puede reducir la mensualidad inicial, pero incrementar los intereses totales.</p>
+        <div class="ij-table-scroller"><table class="ij-table"><thead><tr><th>Plazo</th><th>Pago inicial</th><th>Intereses totales</th><th>Esfuerzo inicial</th><th>Evaluación</th></tr></thead><tbody id="ijCompararBody"></tbody></table></div>
+      </section>
+
+      <section id="ijAmortizacion" class="ij-panel ij-analysis" aria-labelledby="ij-amort-titulo" hidden>
+        <details class="ij-detail-table">
+          <summary><span><span class="ij-mini-label">05 / MATEMÁTICAS FINANCIERAS</span><strong id="ij-amort-titulo">Ver tabla completa de amortización</strong><small>Saldo insoluto, intereses, abono a capital y pago mensual</small></span><span class="ij-detail-plus" aria-hidden="true">+</span></summary>
+          <p class="ij-section-description">Intereses sobre saldo inicial con tasa periódica de 5%/12; mensualidades vencidas que aumentan 3% al inicio de cada año. Conservamos precisión interna y mostramos los importes a centavos.</p>
+          <div class="ij-table-scroller"><table class="ij-table"><thead><tr><th>Mes</th><th>Año</th><th>Saldo inicial</th><th>Interés</th><th>Pago</th><th>Capital</th><th>Saldo final</th></tr></thead><tbody id="ijMensualBody"></tbody></table></div>
+        </details>
+      </section>
+
+      <section class="ij-information" aria-labelledby="ij-informacion-titulo">
+        <span class="ij-section-tag">INFORMACIÓN IMPORTANTE</span>
+        <h2 id="ij-informacion-titulo">Un simulador para aprender y planear</h2>
+        <p>IMPULSO JOVEN es una propuesta académica de orientación. Sus parámetros son provisionales. No representa una oferta comercial, aprobación de crédito ni garantía de incrementos salariales. No se han definido seguros, comisiones, enganche, impuestos ni gastos notariales; por ello, <strong>los resultados no representan un CAT ni el costo integral de una hipoteca real</strong>.</p>
+        <p>El seguimiento anual y la revisión integral cada cinco años forman parte del programa propuesto, pero no producen reestructuraciones automáticas.</p>
+        <a href="index.html" class="ij-back-link">Volver al simulador hipotecario principal <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="ij-footer"><p>ASTRAEUS · IMPULSO JOVEN</p><p>Simulador académico de orientación financiera</p></footer>
+  <!-- Únicamente el JS de esta campaña: no se carga el motor del simulador bancario -->
+  <script src="js/hogares-jovenes.js"></script>
+  <!-- Se sigue reutilizando el menú lateral existente -->
+  <script src="js/menu.js"></script>
+</body>
+</html>
