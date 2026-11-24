@@ -140,6 +140,7 @@
         campana,tipoComision,segurosExternos,valorAsegurable,subcuenta,fechaReferencia,
         sueldoCotizacionMensual, advertencias:base.advertencias, ...c,
         prepagos:leerPrepagos(),
+        modalidadPrepago:$('modalidadPrepago').value,
       };
     }
     function leerPrepagos() {
@@ -160,7 +161,7 @@
       const resumen=F.resumenOperacion({valorVivienda:p.valorVivienda,recursosBanco:p.creditoBanco,
         creditoInfonavit:p.creditoInfonavit,subcuenta:p.subcuenta,gastos});
       const cfg={...p,porcentajePenalizacion:C.PRODUCTOS[p.productoId].prepago,
-        comisionApertura:gastos.apertura,avaluo:gastos.avaluo,modalidadPrepago:'plazo'};
+        comisionApertura:gastos.apertura,avaluo:gastos.avaluo,modalidadPrepago:p.modalidadPrepago || 'plazo'};
       const tabla=F.simularTabla(cfg);
       let cat=null, errorCat=null;
       try { cat=F.calcularCAT(cfg); } catch(e) {errorCat=errorTexto(e);}
@@ -171,6 +172,7 @@
       if (p.creditoBanco<0.01) throw new Error('El crédito bancario calculado no puede ser cero.');
       if (tabla.ultimoSaldo>0.01) notas.push('El crédito no se liquidó en los 240 meses modelados; revisar tasa, PPM o condiciones especiales.');
       if (resumen.enganche<0) notas.push('Los recursos estimados superan el valor de vivienda: revisar subcuenta y distribución del crédito.');
+      if (p.modalidadPrepago==='pago' && Object.keys(p.prepagos||{}).length) notas.push('Disminución de pago: cálculo por factores AQ de una corrida base sin prepagos. En validación contra Excel para escenarios con prepagos; no se declara coincidencia centesimal todavía.');
       if (errorCat) notas.push('CAT no calculable en este escenario: '+errorCat);
       return {p,gastos,resumen,tabla,cat,notas};
     }

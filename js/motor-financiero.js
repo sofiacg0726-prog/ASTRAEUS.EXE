@@ -143,7 +143,13 @@
     const primero = primerosDatosPago(p.fechaReferencia);
     const n = p.maxMeses ?? 240;
     if (!Number.isInteger(n) || n < 1 || n > 600) throw new Error('maxMeses inválido');
-    if (p.modalidadPrepago === 'pago') throw new Error('Disminución del pago pendiente de replicar la fórmula AQ del Excel (no se usa aproximación).');
+    // Excel: AQ_t = AU_t / AT_t, donde AU/AT proceden de la corrida auxiliar
+    // SIN prepagos. Si el usuario elige disminuir pago, cada pago posterior se
+    // calcula como saldo_actual * factor_AQ_del_mes, no por una anualidad fija.
+    // Se conserva sin cambios la modalidad plazo para compatibilidad con la
+    // corrida de referencia. Los casos con prepago aún necesitan cotejo con Excel.
+    const reducirPago = p.modalidadPrepago === 'pago' && Object.keys(p.prepagos||{}).some(k => (p.prepagos[k]||0)>0);
+    const factoresBase = reducirPago ? simularTabla({...p, prepagos:{}, modalidadPrepago:'plazo'}).filas.map(f => f.saldoInicial>0 ? f.erogacion/f.saldoInicial : 0) : null;
     const amortizacion = [];
     let saldo = saldoInicialOriginal;
     let pagoAnterior = null;
@@ -156,6 +162,10 @@
       let erogacion;
       if (mes === 1) erogacion = saldoInicialOriginal / 1000 * ppm;
       else if (saldo + interes - pagoAnterior <= 0) erogacion = saldo + interes;
+      else if (reducirPago && factoresBase[mes-1] > 0) {
+        // AQ_t del Excel: proporción erogación/saldo de la corrida auxiliar.
+        erogacion = saldo * factoresBase[mes-1];
+      }
       else erogacion = pagoAnterior * (1 + aumento);
       const amortizacionCapital = erogacion - interes;
       const prepago = p.prepagos?.[mes] || 0;
